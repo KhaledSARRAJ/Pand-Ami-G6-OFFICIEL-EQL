@@ -38,6 +38,8 @@ Un volontaire fait part de son intérêt pour une demande en contactant l’associat
 
 
 
+
+
                  ------Contacter le bénéficiaire + accord---
 L’association contacte alors le bénéficiaire par téléphone pour obtenir son accord.
 
@@ -54,4 +56,107 @@ Une fois le service rendu, l’association contacte le volontaire et le bénéficiai
 
   
 
-                    
+   Elaborer le diagramme de cas d'utilisation. Vous devez expliquer avec précision tous vos choix       
+
+
+
+
+Problème
+
+Mais ces formes ont de multiples inconvénients : 
+Déjà, elles se limitent à des initiatives de groupes restreints.
+ 
+Ensuite, elles sont désorganisées : pour se coordonner, elles emploient des méthodes rudimentaires (panneaux, bouche à oreille, …). Ce rudimentaire fonctionne mais à des limites
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Solution :
+
+Pour remédier au problème cité, nous proposons de créer une application dédiée à l’entraide, qui se déroule suivant différentes étapes :
+
+1ére étape :
+
+
+1-Liste les acteurs 
+
+Bénéficiaire, volontaires
+
+2-identifier les cas d’utilisation
+ 
+ - Définir un bénéficiaire
+ - Demander un service 
+ - Définir un volontaire
+ - Effectuer le service
+ - Bénéficier du service
+ - Fin du service
+ - Evaluation du service
+
+3-transformer le tableau en diagramme sans définir les relations
+
+Cas utilisation /ActeursVolontaires
+BénéficiairesAssociationDéfinir un bénéficiairePSDemander un servicePDéfinir un volontairePEffectuer le servicePBénéficier du servicePFin du servicePEvaluation du servicePPP : principale
+S : secondaire
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+4-identification des relations
+
+
+
+
+
+
+
+
+
+2éme étape :
+
+Plan type : 
+
+Titre : Remplir un formulaire d'inscription
+Objectif : bénéficier 
+Acteur : 
+Précondition
+Postcondition
+
+Description du scénario nominal : 
+Description du scénario alternatif : 
+Description du scénario d’erreur : 
+
