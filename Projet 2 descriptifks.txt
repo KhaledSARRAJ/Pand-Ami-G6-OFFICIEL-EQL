@@ -2,7 +2,7 @@ Fonctionnement de l’association
 
 L’association a pour but de promouvoir une société solidaire : elle favorise et organise l’entraide sur certains besoins répartis par domaines : transport/livraison, ménage/bricolage/jardinage, animaux domestiques, prêts/dons. 
 Pour cela, elle met en relation les personnes qui expriment un besoin, appelées bénéficiaires, avec des volontaires susceptibles d’y répondre favorablement. 
-                         ----Mode envoie---
+                         ----Mode d’envoi---
                       ----Expression de besoin----
 
 Les bénéficiaires expriment leur besoin via un formulaire de demande papier qu’ils remettent par courrier à l’association ou en main propre à leur local. Ils peuvent aussi le scanner et l’envoyer par email. 
@@ -16,11 +16,11 @@ L’association vérifie la conformité de la demande (identité du bénéficiaire, bes
                     ------ organisation les infos : -----
 
 
-           ------Bancarisation de la demande (archive)---
+           ------Traitement de la demande (saisie,archivage)---
 
 Cette demande est ajoutée dans un dossier (dossier papier et traitement de texte). 
 
-          -----ranger géographiquement et par besoins-------
+          -----Ranger géographiquement et par besoins-------
 
 Chaque dossier correspond à une zone géographique. Les dossiers sont divisés en rubriques, chacune correspondant à un domaine de besoins.
 
@@ -56,44 +56,25 @@ Une fois le service rendu, l’association contacte le volontaire et le bénéficiai
 
   
 
-   Elaborer le diagramme de cas d'utilisation. Vous devez expliquer avec précision tous vos choix       
 
+Problèmes
+Le fonctionnement actuel de l’association engendre souvent des erreurs :
+- Erreur lors du remplissage du formulaire de demande par le bénéficiaire
+- Erreur de rangement de la demande dans les dossiers
+- Il arrive que les dossiers en version numérique ne soient pas synchronisés avec les dossiers en version papier. Beaucoup de demandes restent ainsi sans réponse.
 
-
-
-Problème
-
-Mais ces formes ont de multiples inconvénients : 
-Déjà, elles se limitent à des initiatives de groupes restreints.
- 
-Ensuite, elles sont désorganisées : pour se coordonner, elles emploient des méthodes rudimentaires (panneaux, bouche à oreille, …). Ce rudimentaire fonctionne mais à des limites
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Limites
+Il pose aussi des limites :
+- Lors de la diffusion de la demande d’aide, beaucoup de volontaires enregistrés n’ont plus leur profil à jour et ne la reçoivent pas.
+- Selon les circonstances (grève, confinement, indisponibilité des adhérents), les locaux peuvent fermer. Les affiches et les dossiers de demande sont alors inaccessibles.
+- Il y a parfois des difficultés à joindre les bénéficiaires et les volontaires. En cas d’imprévu ou d’annulation, le système manque de souplesse. 
+- La visibilité des demandes est restreinte aux seuls adhérents, à leurs connaissances et aux visiteurs qui peuvent se rendre dans les locaux.
 
 
 
 Solution :
 
-Pour remédier au problème cité, nous proposons de créer une application dédiée à l’entraide, qui se déroule suivant différentes étapes :
+Pour remédier aux problèmes cités, nous proposons de créer une application dédiée à l’entraide, qui se déroule suivant différentes étapes :
 
 1ére étape :
 
@@ -114,8 +95,8 @@ Bénéficiaire, volontaires
 
 3-transformer le tableau en diagramme sans définir les relations
 
-Cas utilisation /ActeursVolontaires
-BénéficiairesAssociationDéfinir un bénéficiairePSDemander un servicePDéfinir un volontairePEffectuer le servicePBénéficier du servicePFin du servicePEvaluation du servicePPP : principale
+Cas utilisation /Acteurs
+
 S : secondaire
 
 
