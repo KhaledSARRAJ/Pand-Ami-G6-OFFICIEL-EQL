@@ -2,6 +2,7 @@ Fonctionnement de l’association
 
 L’association a pour but de promouvoir une société solidaire : elle favorise et organise l’entraide sur certains besoins répartis par domaines : transport/livraison, ménage/bricolage/jardinage, animaux domestiques, prêts/dons. 
 Pour cela, elle met en relation les personnes qui expriment un besoin, appelées bénéficiaires, avec des volontaires susceptibles d’y répondre favorablement. 
+
                          ----Mode d’envoi---
                       ----Expression de besoin----
 
@@ -18,7 +19,7 @@ L’association vérifie la conformité de la demande (identité du bénéficiaire, bes
 
            ------Traitement de la demande (saisie,archivage)---
 
-Cette demande est ajoutée dans un dossier (dossier papier et traitement de texte). 
+Cette demande est ajoutée dans un dossier papier et sur traitement de texte (soit une version physique et une version numérique). 
 
           -----Ranger géographiquement et par besoins-------
 
@@ -59,7 +60,7 @@ Une fois le service rendu, l’association contacte le volontaire et le bénéficiai
 
 Problèmes
 Le fonctionnement actuel de l’association engendre souvent des erreurs :
-- Erreur lors du remplissage du formulaire de demande par le bénéficiaire
+- Erreur lors du remplissage du formulaire de demande par le bénéficiaire ou bien formulaire illisible
 - Erreur de rangement de la demande dans les dossiers
 - Il arrive que les dossiers en version numérique ne soient pas synchronisés avec les dossiers en version papier. Beaucoup de demandes restent ainsi sans réponse.
 
@@ -68,6 +69,7 @@ Il pose aussi des limites :
 - Lors de la diffusion de la demande d’aide, beaucoup de volontaires enregistrés n’ont plus leur profil à jour et ne la reçoivent pas.
 - Selon les circonstances (grève, confinement, indisponibilité des adhérents), les locaux peuvent fermer. Les affiches et les dossiers de demande sont alors inaccessibles.
 - Il y a parfois des difficultés à joindre les bénéficiaires et les volontaires. En cas d’imprévu ou d’annulation, le système manque de souplesse. 
+- Compte tenu de la lourdeur de la procédure, les demandes doivent être prises toujours en avance.
 - La visibilité des demandes est restreinte aux seuls adhérents, à leurs connaissances et aux visiteurs qui peuvent se rendre dans les locaux.
 
 
@@ -81,23 +83,61 @@ Pour remédier aux problèmes cités, nous proposons de créer une application dédié
 
 1-Liste les acteurs 
 
-Bénéficiaire, volontaires
+Bénéficiaire, volontaire
 
-2-identifier les cas d’utilisation
+
+2-Identifier les cas d’utilisation
  
- - Définir un bénéficiaire
- - Demander un service 
- - Définir un volontaire
- - Effectuer le service
- - Bénéficier du service
- - Fin du service
- - Evaluation du service
+-Inscrire un utilisateur : Chaque utilisateur devra être connu de l’application en ayant un compte pour des raisons de sécurité et de rassurer les utilisateurs qui seront tous vérifiés.
+-Proposer un service : Chaque volontaire publie une offre des services qu’il peut réaliser. Il peut définir les paramètres des services proposés : date, lieu, ponctuel/régulier, fréquence, ...
+	-Demander un service : Le bénéficiaire effectue une demande de service. Il peut définir les paramètres des services demandés : date, lieu, ponctuel/régulier, fréquence, …
+	- Traiter les propositions et les demandes : Chaque proposition et demande sont classées suivant les critères suivants : zone géographique, domaine de services.
+-Répondre à une offre/une demande : Le volontaire répond à une demande de service. / Le bénéficiaire répond à une offre de service.
+-Traiter les réponses  (accepter ou refuser):  Le  bénéficiaire confirme ou infirme la réalisation du service par le volontaire. / Le  volontaire confirme ou infirme la réalisation du service au bénéficiaire.
+Cas inclus (Mettre en relation le volontaire et le bénéficiaire : Après validation, les deux utilisateurs auront accès aux coordonnées, pouvant ainsi entrer en contact de façon directe.)
+-Faire un retour sur le service rendu : chaque utilisateur peut faire un retour sur le service réalisé.
+-Gérer un service (modifier ou annuler): il est possible pour les deux utilisateurs d’annuler un service jusqu’à … h avant.
 
-3-transformer le tableau en diagramme sans définir les relations
 
-Cas utilisation /Acteurs
 
-S : secondaire
+
+Cas d’utilisation 
+Acteurs
+1
+2
+3
+4
+5
+6
+7
+Système
+X
+
+X
+
+
+
+X
+Bénéficiaire
+
+X
+
+
+X
+
+X
+Volontaire
+
+
+
+X
+
+X
+X
+
+
+3-Transformer le tableau en diagramme sans définir les relations
+
 
 
 
