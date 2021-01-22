@@ -60,7 +60,7 @@ namespace GestionProduits
                 routes.MapRoute(
                     name: "default",
                     //définir la page qui s'ouvre par defaut
-                    template: "{controller=Produit}/{action=Index}/{id?}");
+                    template: "{controller=Home}/{action=Index}/{id?}");
             });
         }
     }
