@@ -34,7 +34,7 @@ namespace MonCatalogueProduit.Service
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             //Nom de serveur + Nom de base de donneer + 
-            optionsBuilder.UseSqlServer("Server=(localdb)\\MSSQLLocalDB; Database=Pandami;Trusted_Connection=True");
+            optionsBuilder.UseSqlServer("Server=FORM222\\SQLEXPRESS; Database=Pandami;Trusted_Connection=True");
         }
     }
 }
