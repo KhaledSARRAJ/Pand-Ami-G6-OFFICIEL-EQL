@@ -11,7 +11,7 @@ namespace MonCatalogueProduit.Service
     {
 
         public DbSet<Demande> ListeDemandes { set; get; }
-        public DbSet<DomaineActivite> ListeDomaineActiviter { set; get; }
+        public DbSet<Categorie> ListeCategories { set; get; }
         public DbSet<CategorieDomaine> CategoriesDomaines { set; get; }
         public DbSet<Materiel> ListMateriel { set; get; }
         public DbSet<Reponse> ListReponse { set; get; }

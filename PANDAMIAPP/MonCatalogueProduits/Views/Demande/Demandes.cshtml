@@ -1,50 +1,76 @@
 ﻿@model IEnumerable<MonCatalogueProduit.Service.Demande>
 @{ ViewData["Title"] = "Liste des Demandes"; }
-
-<h2>Liste des Demandes</h2>
+<h2>
+</h2>
+<div class="container">
+    <a asp-action="FormDemande">Nouveau Demande</a>
+</div>
 
 <div class="container spacer">
-    <a asp-controller="Demande" asp-action="DemandeForm">
-        Ajouter Nouveau Demande
-    </a>
-</div>
+    <!-- si on veut que le tableau occupe pas tout le colonne et qu'il soit centre: "col-md-6 col-xs-12" ou "col-md10 col-md-offset-1 col-xs-12"-->
+    <div class="panel panel-primary">
+        <!--Couleur bleu-->
+        <div class="panel-heading">Liste des demandes</div>
+        <div class="panel-body">
 
+            <!--Recherche mot clé-->
+            <div class="container">
+                <form method="get" asp-action="Index">
+                    <label>Mot Clè: </label>
+                    <input type="text" name="motCle" value="@ViewBag.motCle" />
+                    <button type="submit" class="btn btn-primary">Chercher</button>
+                </form>
+            </div>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Demande</th>
+                        <th>Date debut </th>
+                        <th>Date de fin</th>
+                        <th>Categorie</th>
 
-<div>
-    <form method="post" asp-action="Chercher">
-        <div class="form-group">
-            <label>Mot clé: </label>
-            <input type="text" name="motCle" value="@Html.ViewBag.motCle" />
-            <button type="submit" class="btn btn-primary">Chercher</button>
-            @Html.ValidationMessage("motCle", new { @class = "text-danger" })
-        </div>
-    </form>
-</div>
-
-<table class=" table table-striped">
-    <thead>
-        <tr>
-            <th>@Html.DisplayNameFor(model => model.DemandeID)</th>
-            <th>@Html.DisplayNameFor(model => model.Description)</th>
-            <th>@Html.DisplayNameFor(model => model.NombreDeFois)</th>
-            <!--Ou bien-->
-            <!--
-                <th>ID</th>
-                <th>Designation</th>
-                <th>Prix</th>
-            -->
-        </tr>
-    </thead>
-    <tbody>
-        @{ foreach (var p in Model)
+                    </tr>
+                </thead>
+                <tbody>
+                    @{ foreach (var p in Model)
                         {
-            <tr>
+                            <tr>
+                            <td>@p.DemandeID </td>
+                        <td>@p.Description </td>
 
-                <td>@Html.DisplayFor(modelItem => p.DemandeID)</td>
-                <td>@Html.DisplayFor(modelItem => p.Description)</td>
-                <td>@Html.DisplayFor(modelItem => p.NombreDeFois)</td>
-                <td><a asp-action="Delete" asp-route-ID="@p.DemandeID" onclick="return confirm('Etes vous-sùre de vouloir supprimer ?');"> Supprimer</a></td>
-                <td><a asp-action="Editer" asp-route-ID="@p.DemandeID"> Editer</a></td>
-            </tr> } }
-    </tbody>
-</table>
+                        <td>@p.DateEnregistrementDemande </td>
+                        <td>@p.DatedeRealisation </td>
+                        <td>@p.categorieDemande.LibelleDomaine </td>
+                        
+
+
+                            <td><a asp-action="Delete" asp-route-ID="@p.DemandeID" onclick="return confirm('Etes vous-sùre de vouloir supprimer ?');"> Supprimer</a></td>
+                            <td><a asp-action="Editer" asp-route-ID="@p.DemandeID"> Editer</a></td>
+                        </tr>
+                    } }
+                    </tbody>
+                </table>
+
+            <div>
+
+                <ul class="nav nav-pills">
+                    @{ for (int i = 0; i < ViewBag.totalPages; i++)
+                        {
+                            string classeName = "";
+                            if (i == ViewBag.currentPage)
+                            { classeName = "active"; }
+                            <li class="@classeName">
+                                <a asp-action="Index" asp-route-page="@i" asp-route-motCle="@ViewBag.motCle">@i</a>
+                            </li>
+
+                        }
+                    }
+
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+</div>

@@ -17,10 +17,16 @@
             @Html.ValidationMessageFor(p => p.Description, "", new { @class = "text-danger" })
         </div>
         <div class="form-group">
-            @Html.LabelFor(p => p.NombreDeFois, new { @class = "control-label" })
-            @Html.TextBoxFor(p => p.NombreDeFois, new { @class = "form-control" })
-            @Html.ValidationMessageFor(p => p.NombreDeFois, "", new { @class = "text-danger" })
+            @Html.LabelFor(p => p.DateEnregistrementDemande, new { @class = "control-label" })
+            @Html.TextBoxFor(p => p.DateEnregistrementDemande, new { @class = "form-control" })
+            @Html.ValidationMessageFor(p => p.DateEnregistrementDemande, "", new { @class = "text-danger" })
         </div>
+        <div class="form-group">
+            @Html.LabelFor(p => p.DatedeRealisation, new { @class = "control-label" })
+            @Html.TextBoxFor(p => p.DatedeRealisation, new { @class = "form-control" })
+            @Html.ValidationMessageFor(p => p.DatedeRealisation, "", new { @class = "text-danger" })
+        </div>
+
         <div class="form-group">
             <button type="submit" class="btn btn-primary">Update</button>
         </div>

@@ -15,6 +15,6 @@ namespace GestionProduits.Service
         public int MaterielID { get; set; }
         public string  LibelleMateriel { get; set; }
        public virtual ICollection<Demande> DemandeMateriels { get; set; }
-        public virtual ICollection<DomaineActivite> MaterielsDomainesActiviter { get; set; }
+        public virtual ICollection<Categorie> MaterielsDomainesActiviter { get; set; }
     }
 }

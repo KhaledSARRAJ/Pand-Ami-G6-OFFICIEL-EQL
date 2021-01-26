@@ -2,101 +2,95 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
+using GestionProduits.Service;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using MonCatalogueProduit.Service;
-using MonCatalogueProduit.Service.interfaces;
 
 namespace GestionProduits.Controllers
 {
     public class DemandeController : Controller
     {
-        public IDemandeService metier { get; set; }
-
-
-        public DemandeController(IDemandeService metier)
+        public CatalogueDbContext dbContext { get; set; }
+        public DemandeController(CatalogueDbContext db)
         {
-            this.metier = metier;
+            this.dbContext = db;
         }
-
-
-        // GET: /<controller>/
-        public ActionResult Index()
+        public IActionResult Index(int page=0, int size =6, string motCle="")
         {
-            IEnumerable<Demande> prods = metier.FindAll();
 
-
-            return View("Demandes", prods);
-        }
-
-
-        public ActionResult Chercher(string motCle)
-        {
-            if (motCle == null)
-            {
-                ModelState.AddModelError("motCle", "il faut saisir un mot clé");
-            }
-
-            if (ModelState.IsValid)
-            {
-
-                IEnumerable<Demande> prodsParMC = metier.DemandeParMC(motCle);
-
-                ViewBag.motCle = motCle;
-                return View("Demandes", prodsParMC);
+            int position = page * size;
+            IEnumerable<Demande> demandes = dbContext
+                .ListeDemandes
+                .Where(p=>p.Description.Contains(motCle))
+                .Skip(position)
+                .Take(size)
+                .Include(p=>p.categorieDemande)
+                .ToList();
+            ViewBag.currentPage = page;
+            int nbDemandes = 
+                dbContext
+                .ListeDemandes
+                .Where(p => p.Description.Contains(motCle))
+                .ToList().Count;
+            int totalPages;
+            if ((nbDemandes % size) == 0) {
+                totalPages = nbDemandes / size;
             }
             else
             {
-                return View("Demandes", metier.FindAll());
+                totalPages = 1+(nbDemandes / size);
             }
+            ViewBag.motCle = motCle;
+
+            ViewBag.totalPages = totalPages;
+            return View("Demandes",demandes);
         }
-
-
-        public ActionResult DemandeForm()
+        public IActionResult FormDemande()
         {
-
-            Demande demande = new Demande();
-
-            return View("DemandeForm", demande);
+            Demande p = new Demande();
+            IEnumerable<Categorie> cats = dbContext.ListeCategories.ToList();
+            ViewBag.categories = cats;
+            return View("FormDemande",p);
         }
-
-
         [HttpPost]
-        public ActionResult SaveDemande(Demande demande)
+            public IActionResult SaveDemande(Demande p)
         {
-
-            if (ModelState.IsValid)
-            {
-                metier.Save(demande);
-                return RedirectToAction("Index");
+            if (ModelState.IsValid) {                     
+            dbContext.ListeDemandes.Add(p);
+            dbContext.SaveChanges();
+            return RedirectToAction("Index"); //retour à l'index apres l'enregistrement
             }
-            else
-            {
-                return View("DemandeForm");
-            }
+            IEnumerable<Categorie> cats = dbContext.ListeCategories.ToList();
+            ViewBag.categories = cats;
+            return View("FormDemande",p);
 
         }
-
 
         [HttpGet]  //optionnelle
-        public ActionResult Delete(int ID)
+        public ActionResult Delete(int id)
         {
-            metier.Delete(ID);
+            Demande d = new Demande();
+            d.DemandeID = id;
+            dbContext.ListeDemandes.Remove(d);
+            dbContext.SaveChanges();
             return RedirectToAction("Index");
         }
 
-
-        public ActionResult Editer(int ID)
+        public ActionResult Editer(int id)
         {
-            Demande p = metier.GetOne(ID);
-            return View("DemandeFormEdit", p);
+            Demande d = new Demande();
+            d.DemandeID = id;
+        
+            return View("DemandeFormEdit", d);
         }
 
         public ActionResult Update(Demande p)
         {
             if (ModelState.IsValid)
             {
-                metier.Update(p);
+                dbContext.ListeDemandes.Update(p);
+                dbContext.SaveChanges();
                 return RedirectToAction("Index");
             }
             else
