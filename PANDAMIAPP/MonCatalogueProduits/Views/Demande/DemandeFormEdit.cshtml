@@ -1,6 +1,7 @@
 ﻿
 @model MonCatalogueProduit.Service.Demande
 
+
 @{ ViewBag.title = "Edit d'un Demande"; }
 
 
@@ -25,6 +26,16 @@
             @Html.LabelFor(p => p.DatedeRealisation, new { @class = "control-label" })
             @Html.TextBoxFor(p => p.DatedeRealisation, new { @class = "form-control" })
             @Html.ValidationMessageFor(p => p.DatedeRealisation, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            <label class="control-label"> Categorie: </label>
+            <select name="CategoriesID">
+
+                @{ foreach (var c in ViewBag.categories)
+                                {
+                    <option value="@c.CategoriesID">@c.LibelleDomaine</option> } }
+
+            </select>
         </div>
 
         <div class="form-group">

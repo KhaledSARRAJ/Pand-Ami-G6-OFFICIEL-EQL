@@ -81,7 +81,8 @@ namespace GestionProduits.Controllers
         {
             Demande d = new Demande();
             d.DemandeID = id;
-        
+            IEnumerable<Categorie> cats = dbContext.ListeCategories.ToList();
+            ViewBag.categories = cats;
             return View("DemandeFormEdit", d);
         }
 
@@ -89,6 +90,8 @@ namespace GestionProduits.Controllers
         {
             if (ModelState.IsValid)
             {
+              IEnumerable<Categorie> cats = dbContext.ListeCategories.ToList();
+               ViewBag.categories = cats;
                 dbContext.ListeDemandes.Update(p);
                 dbContext.SaveChanges();
                 return RedirectToAction("Index");
