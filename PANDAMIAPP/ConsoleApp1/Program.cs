@@ -39,12 +39,12 @@ namespace TestBaseDeDonner
                     );
                 //Ajouter quelques Demande  
                 //En deuxiéme lancement garder que les produits pour ajouter
-                db.ListeDemandes.Add(new Demande { DateEnregistrementDemande= DateTime.Now, DatedeRealisation = DateTime.Now,
-                   heureSouhaitee = DateTime.Now,
+                db.ListeDemandes.Add(new Demande { DateEnregistrementDemande= "aa", DatedeRealisation = "aa",
+                   heureSouhaitee = "aa",
                    Description = "J'ai besoin d'une voiture rouge type Hondai budget 3000 milles euros",
-                   DateClotureDemande = DateTime.Now,
-                   DateModification = DateTime.Now,
-                   DateAnnulationDemande = DateTime.Now,
+                   DateClotureDemande = "aa",
+                   DateModification = "aa",
+                   DateAnnulationDemande = "aa",
                    adressesecondaire ="Caen",
                    IdentifiantDomaine = 1,
                    IdentifiantMateriel = 3,
@@ -53,13 +53,13 @@ namespace TestBaseDeDonner
                 });
                 db.ListeDemandes.Add(new Demande
                 {
-                    DateEnregistrementDemande = DateTime.Now,
-                    DatedeRealisation = DateTime.Now,
-                    heureSouhaitee = DateTime.Now,
+                    DateEnregistrementDemande = "aa",
+                    DatedeRealisation = "aa",
+                    heureSouhaitee = "aa",
                     Description = "J'ai besoin d'une voiture rouge type Hondai budget 3000 milles euros",
-                    DateClotureDemande = DateTime.Now,
-                    DateModification = DateTime.Now,
-                    DateAnnulationDemande = DateTime.Now,
+                    DateClotureDemande = "aa",
+                    DateModification = "aa",
+                    DateAnnulationDemande = "aa",
                     adressesecondaire = "Caen",
                     IdentifiantDomaine = 2,
                     IdentifiantMateriel = 2,
@@ -68,13 +68,13 @@ namespace TestBaseDeDonner
                 });
                 db.ListeDemandes.Add(new Demande
                 {
-                    DateEnregistrementDemande = DateTime.Now,
-                    DatedeRealisation = DateTime.Now,
-                    heureSouhaitee = DateTime.Now,
+                    DateEnregistrementDemande = "aa",
+                    DatedeRealisation = "aa",
+                    heureSouhaitee = "aa",
                     Description = "J'ai besoin d'une voiture rouge type Hondai budget 3000 milles euros",
-                    DateClotureDemande = DateTime.Now,
-                    DateModification = DateTime.Now,
-                    DateAnnulationDemande = DateTime.Now,
+                    DateClotureDemande = "aa",
+                    DateModification = "aa",
+                    DateAnnulationDemande = "aa",
                     adressesecondaire = "Caen",
                     IdentifiantDomaine = 3,
                     IdentifiantMateriel = 1,

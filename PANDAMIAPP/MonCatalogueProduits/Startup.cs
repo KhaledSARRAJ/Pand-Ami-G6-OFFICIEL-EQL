@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using MonCatalogueProduit.Service;
+using MonCatalogueProduit.Service.interfaces;
 
 namespace GestionProduits
 {
@@ -34,8 +35,9 @@ namespace GestionProduits
 
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
-            services.AddDbContext<CatalogueDbContext>(); //ceci permet d'ajouter CatalogueDbContext au  services au démarrage de l'application 
 
+            services.AddSingleton<IDemandeService, DemandeServiceImpl>();
+            // ou ben pour ne pas faire Singleton : services.AddTransient<IProduitService, ProduitServiceImpl>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -59,7 +61,6 @@ namespace GestionProduits
             {
                 routes.MapRoute(
                     name: "default",
-                    //définir la page qui s'ouvre par defaut
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
         }

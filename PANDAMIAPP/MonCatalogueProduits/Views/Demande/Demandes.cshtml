@@ -1,0 +1,50 @@
+﻿@model IEnumerable<MonCatalogueProduit.Service.Demande>
+@{ ViewData["Title"] = "Liste des Demandes"; }
+
+<h2>Liste des Demandes</h2>
+
+<div class="container spacer">
+    <a asp-controller="Demande" asp-action="DemandeForm">
+        Ajouter Nouveau Demande
+    </a>
+</div>
+
+
+<div>
+    <form method="post" asp-action="Chercher">
+        <div class="form-group">
+            <label>Mot clé: </label>
+            <input type="text" name="motCle" value="@Html.ViewBag.motCle" />
+            <button type="submit" class="btn btn-primary">Chercher</button>
+            @Html.ValidationMessage("motCle", new { @class = "text-danger" })
+        </div>
+    </form>
+</div>
+
+<table class=" table table-striped">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.DemandeID)</th>
+            <th>@Html.DisplayNameFor(model => model.Description)</th>
+            <th>@Html.DisplayNameFor(model => model.NombreDeFois)</th>
+            <!--Ou bien-->
+            <!--
+                <th>ID</th>
+                <th>Designation</th>
+                <th>Prix</th>
+            -->
+        </tr>
+    </thead>
+    <tbody>
+        @{ foreach (var p in Model)
+                        {
+            <tr>
+
+                <td>@Html.DisplayFor(modelItem => p.DemandeID)</td>
+                <td>@Html.DisplayFor(modelItem => p.Description)</td>
+                <td>@Html.DisplayFor(modelItem => p.NombreDeFois)</td>
+                <td><a asp-action="Delete" asp-route-ID="@p.DemandeID" onclick="return confirm('Etes vous-sùre de vouloir supprimer ?');"> Supprimer</a></td>
+                <td><a asp-action="Editer" asp-route-ID="@p.DemandeID"> Editer</a></td>
+            </tr> } }
+    </tbody>
+</table>

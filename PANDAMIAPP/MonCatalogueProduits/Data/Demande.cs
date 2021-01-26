@@ -15,17 +15,17 @@ namespace MonCatalogueProduit.Service
         public int DemandeID { get; set; }
         [Required, MinLength(6), MaxLength(70)] //
                                                 // [StringLength(70)] // taille 
-        public DateTime DateEnregistrementDemande { get; set; }
+        public string DateEnregistrementDemande { get; set; }
         // [Required,Range(10,500000)]
-        public DateTime DatedeRealisation { get; set; }
-        public DateTime heureSouhaitee { get; set; }
+        public string DatedeRealisation { get; set; }
+        public string heureSouhaitee { get; set; }
         public string Description { get; set; }
-        public DateTime DateClotureDemande { get; set; }
-        public DateTime DateModification { get; set; }
-        public DateTime DateAnnulationDemande { get; set; }
+        public string DateClotureDemande { get; set; }
+        public string DateModification { get; set; }
+        public string DateAnnulationDemande { get; set; }
         public string adressesecondaire { get; set; }
         public int IdentifiantDomaine { get; set; }
-        [ForeignKey("DomaineActID")]  // clè etranger
+    public int NombreDeFois { get; set; }
         public int IdentifiantMateriel{ get; set; }
         [ForeignKey("MaterielID")]
         public int IdentifiantMAnnulation { get; set; }
