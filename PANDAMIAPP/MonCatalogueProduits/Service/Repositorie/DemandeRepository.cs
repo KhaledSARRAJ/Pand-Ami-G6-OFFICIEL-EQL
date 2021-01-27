@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using GestionProduits.Service.Interfaces;
+using Microsoft.EntityFrameworkCore;
 using MonCatalogueProduit.Service;
 
 namespace GestionProduits.Service.Repositorie
@@ -15,11 +16,12 @@ namespace GestionProduits.Service.Repositorie
             _appDbContext = appDbContext;
         }
 
-        public IEnumerable<Demande> Demandes => _appDbContext.ListeDemandes.Include(c => c.Catego);
+        public IEnumerable<Demande> Demandes => _appDbContext.ListeDemandes.Include(c => c.categorieDemande)
+                .ToList();
 
-        public IEnumerable<Demande> PreferredDrinks => _appDbContext.ListeDemandes.Where(p => p.IsPreferredDemande).Include(c => c.Category);
+        public IEnumerable<Demande> PreferredDemandes => _appDbContext.ListeDemandes.Where(p => p.IsPreferredDemande).Include(c => c.categorieDemande);
 
-        public Demande GetDrinkById(int demandeId) => _appDbContext.ListeDemandes.FirstOrDefault(p => p.DrinkId == drinkId);
+        public Demande GetDemandeById(int demandeId) => _appDbContext.ListeDemandes.FirstOrDefault(p => p.DemandeID == demandeId);
     }
 
 }

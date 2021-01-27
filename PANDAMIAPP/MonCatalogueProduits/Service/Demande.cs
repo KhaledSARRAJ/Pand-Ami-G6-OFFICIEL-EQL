@@ -48,7 +48,7 @@ namespace MonCatalogueProduit.Service
         //include aprés pour l'appeler
         public virtual Categorie categorieDemande { get; set; }
 
-        public virtual Materiel materiels { get; set; }
+        //public virtual Materiel materiels { get; set; }
         public virtual ICollection<Reponse> DemandeReponse {get; set;}
         public virtual ICollection<Satisfaction> DemandeSatisfaction { get; set; }
         public virtual ICollection<Concertation> DemandeConcertation { get; set; }

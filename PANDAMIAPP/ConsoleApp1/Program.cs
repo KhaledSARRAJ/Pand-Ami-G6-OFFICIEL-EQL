@@ -11,27 +11,27 @@ namespace TestBaseDeDonner
             using (var db = new CatalogueDbContext())//using son but est de creer l'objet dbContext mais quant on arrive à la fin de crochet il le ferme 
             {//var : variable dynamique
              //Creation de la base de données           
-                /*
-                db.Database.EnsureDeleted(); // supprime moi tout 
-                db.Database.EnsureCreated(); // creer moi tout au exécution (attention juste pour la premiere exécution) aprés il faut les mettres en commentaire
+                
+            // db.Database.EnsureDeleted(); // supprime moi tout 
+            //    db.Database.EnsureCreated(); // creer moi tout au exécution (attention juste pour la premiere exécution) aprés il faut les mettres en commentaire
 
 
                 //Ajouter quelques categorie 
-                db.CategoriesDomaines.Add(new CategorieDomaine { libelleCategorie ="Medical"});
-                db.CategoriesDomaines.Add(new CategorieDomaine { libelleCategorie = "Agricole" });
-                db.CategoriesDomaines.Add(new CategorieDomaine { libelleCategorie = "Construction" });
+               // db.CategoriesDomaines.Add(new CategorieDomaine { libelleCategorie ="Medical"});
+             //   db.CategoriesDomaines.Add(new CategorieDomaine { libelleCategorie = "Agricole" });
+              //  db.CategoriesDomaines.Add(new CategorieDomaine { libelleCategorie = "Construction" });
                 //Ajouter quelques Materiels 
-                db.ListMateriel.Add(new Materiel { LibelleMateriel = "Voiture" });
-                db.ListMateriel.Add(new Materiel { LibelleMateriel = "Marteau" });
-                db.ListMateriel.Add(new Materiel { LibelleMateriel = "Ponsseuce" });
+                //.ListMateriel.Add(new Materiel { LibelleMateriel = "Voiture" });
+                //db.ListMateriel.Add(new Materiel { LibelleMateriel = "Marteau" });
+               // db.ListMateriel.Add(new Materiel { LibelleMateriel = "Ponsseuce" });
                 //Ajouter quelques Domaine d'activiter
-                db.ListeCategories.Add(
-                    new Categorie { LibelleDomaine = "Menage", CategorieDomaineID=1, MaterielID = 3}
+              /* db.ListeCategories.Add(
+                    new Categorie { LibelleDomaine = "Exterieur"}
                     );
                 db.ListeCategories.Add(
-                    new Categorie { LibelleDomaine = "Agricole", CategorieDomaineID = 1, MaterielID = 1 }
-                    );
-                db.ListeCategories.Add(
+                    new Categorie { LibelleDomaine = "Interieur" }
+                    );*/
+              /*  db.ListeCategories.Add(
                   new Categorie { LibelleDomaine = "Construction", CategorieDomaineID = 1, MaterielID = 2 }
                   );
                 db.ListeCategories.Add(
@@ -64,7 +64,7 @@ namespace TestBaseDeDonner
                 });
                 db.ListeDemandes.Add(new Demande
                 {
-                    CategoriesID = 3,
+                    CategoriesID = 2,
                     Description = "Aide médical",
                     IdentifiantMateriel = 2,
                     DateEnregistrementDemande = "12/12/2020",

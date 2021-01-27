@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using GestionProduits.Service;
+using GestionProduits.Service.Interfaces;
+using GestionProduits.Service.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MonCatalogueProduit.Service;
@@ -103,5 +105,42 @@ namespace GestionProduits.Controllers
             }
         }
 
+        public ViewResult List(string category)
+        {
+            string _category = category;
+            IEnumerable<Demande> demandes;
+            string currentCategory = string.Empty;
+
+            if (string.IsNullOrEmpty(category))
+            {
+                demandes = dbContext.ListeDemandes.OrderBy(p => p.DemandeID);
+                currentCategory = "All demandes";
+            }
+            else
+            {
+                demandes = dbContext.ListeDemandes.Where(p => p.categorieDemande.LibelleDomaine.Equals(_category)).OrderBy(p => p.DemandeID);      
+                currentCategory = _category;
+            }
+
+
+            ViewBag.demandes = demandes;
+            ViewBag.currentCategory = currentCategory;
+
+   
+            return View("Demandes", new DemandesListViewModel
+            {
+                Demandes = demandes,
+                CurrentCategory = currentCategory
+            });
+        }
+        public ViewResult Details(int demandeId)
+        {
+            var demande = dbContext.ListeDemandes.FirstOrDefault(d => d.DemandeID == demandeId);
+            if (demande == null)
+            {
+                return View("~/Views/Error/Error.cshtml");
+            }
+            return View(demande);
+        }
     }
 }
