@@ -11,7 +11,7 @@ namespace TestBaseDeDonner
             using (var db = new CatalogueDbContext())//using son but est de creer l'objet dbContext mais quant on arrive à la fin de crochet il le ferme 
             {//var : variable dynamique
              //Creation de la base de données           
-                /*
+                
                 db.Database.EnsureDeleted(); // supprime moi tout 
                 db.Database.EnsureCreated(); // creer moi tout au exécution (attention juste pour la premiere exécution) aprés il faut les mettres en commentaire
 
@@ -50,7 +50,7 @@ namespace TestBaseDeDonner
                     );
                 db.ListeCategories.Add(
                   new Categorie { LibelleDomaine = "Nettoyage", CategorieDomaineID = 1, MaterielID = 2 }
-                  );*/
+                  );
                 //Ajouter quelques Demande  
                 //En deuxiéme lancement garder que les produits pour ajouter
                 db.ListeDemandes.Add(new Demande {

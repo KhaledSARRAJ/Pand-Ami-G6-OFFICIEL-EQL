@@ -54,7 +54,6 @@ namespace MonCatalogueProduit.Service
         public virtual ICollection<Concertation> DemandeConcertation { get; set; }
         public virtual ICollection<Demande> RecurrenceDemande { get; set; }
 
-        public bool IsPreferredDemande { get; set; }
-        public bool InStock { get; set; }
+       
     }
 }
