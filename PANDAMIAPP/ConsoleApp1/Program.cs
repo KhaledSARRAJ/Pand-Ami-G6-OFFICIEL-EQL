@@ -12,8 +12,13 @@ namespace TestBaseDeDonner
             {//var : variable dynamique
              //Creation de la base de données           
                 
+<<<<<<< HEAD
             // db.Database.EnsureDeleted(); // supprime moi tout 
             //    db.Database.EnsureCreated(); // creer moi tout au exécution (attention juste pour la premiere exécution) aprés il faut les mettres en commentaire
+=======
+                db.Database.EnsureDeleted(); // supprime moi tout 
+                db.Database.EnsureCreated(); // creer moi tout au exécution (attention juste pour la premiere exécution) aprés il faut les mettres en commentaire
+>>>>>>> 95a0be5f2b89dd1138104547ab48463249310397
 
 
                 //Ajouter quelques categorie 
@@ -50,7 +55,7 @@ namespace TestBaseDeDonner
                     );
                 db.ListeCategories.Add(
                   new Categorie { LibelleDomaine = "Nettoyage", CategorieDomaineID = 1, MaterielID = 2 }
-                  );*/
+                  );
                 //Ajouter quelques Demande  
                 //En deuxiéme lancement garder que les produits pour ajouter
                 db.ListeDemandes.Add(new Demande {

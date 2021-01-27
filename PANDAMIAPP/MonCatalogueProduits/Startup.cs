@@ -4,8 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 
 using GestionProduits.Service;
-using GestionProduits.Service.Interfaces;
-using GestionProduits.Service.Repositorie;
+
+
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -40,7 +40,7 @@ namespace GestionProduits
             services.AddDbContext<CatalogueDbContext>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
            
-            services.AddTransient<IDemandeRepository, DemandeRepository>();
+            
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddScoped(sp => ShoppingCart.GetCart(sp));
             services.AddMemoryCache();
