@@ -11,7 +11,7 @@ namespace TestBaseDeDonner
             using (var db = new CatalogueDbContext())//using son but est de creer l'objet dbContext mais quant on arrive à la fin de crochet il le ferme 
             {//var : variable dynamique
              //Creation de la base de données           
-                /**/
+                /*
                 db.Database.EnsureDeleted(); // supprime moi tout 
                 db.Database.EnsureCreated(); // creer moi tout au exécution (attention juste pour la premiere exécution) aprés il faut les mettres en commentaire
 
@@ -26,7 +26,7 @@ namespace TestBaseDeDonner
                 db.ListMateriel.Add(new Materiel { LibelleMateriel = "Ponsseuce" });
                 //Ajouter quelques Domaine d'activiter
                 db.ListeCategories.Add(
-                    new Categorie { LibelleDomaine = "Medical", CategorieDomaineID=1, MaterielID = 3}
+                    new Categorie { LibelleDomaine = "Menage", CategorieDomaineID=1, MaterielID = 3}
                     );
                 db.ListeCategories.Add(
                     new Categorie { LibelleDomaine = "Agricole", CategorieDomaineID = 1, MaterielID = 1 }
@@ -38,19 +38,19 @@ namespace TestBaseDeDonner
     new Categorie { LibelleDomaine = "Medical", CategorieDomaineID = 1, MaterielID = 3 }
     );
                 db.ListeCategories.Add(
-                    new Categorie { LibelleDomaine = "Agricole", CategorieDomaineID = 1, MaterielID = 1 }
+                    new Categorie { LibelleDomaine = "logistique", CategorieDomaineID = 1, MaterielID = 1 }
                     );
                 db.ListeCategories.Add(
-                  new Categorie { LibelleDomaine = "Construction", CategorieDomaineID = 1, MaterielID = 2 }
+                  new Categorie { LibelleDomaine = "Bricolage", CategorieDomaineID = 1, MaterielID = 2 }
                   ); db.ListeCategories.Add(
-     new Categorie { LibelleDomaine = "Medical", CategorieDomaineID = 1, MaterielID = 3 }
+     new Categorie { LibelleDomaine = "Garde enfant", CategorieDomaineID = 1, MaterielID = 3 }
      );
                 db.ListeCategories.Add(
-                    new Categorie { LibelleDomaine = "Agricole", CategorieDomaineID = 1, MaterielID = 1 }
+                    new Categorie { LibelleDomaine = "Garde animal", CategorieDomaineID = 1, MaterielID = 1 }
                     );
                 db.ListeCategories.Add(
-                  new Categorie { LibelleDomaine = "Construction", CategorieDomaineID = 1, MaterielID = 2 }
-                  );
+                  new Categorie { LibelleDomaine = "Nettoyage", CategorieDomaineID = 1, MaterielID = 2 }
+                  );*/
                 //Ajouter quelques Demande  
                 //En deuxiéme lancement garder que les produits pour ajouter
                 db.ListeDemandes.Add(new Demande {
@@ -158,7 +158,7 @@ namespace TestBaseDeDonner
                 
                 });
                 //Ajouter une liste de preference de rayon d'action
-                db.ListPreferenceRayonAction.Add(new PreferenceRayonAction { 
+                db.ListePreferenceRayonAction.Add(new PreferenceRayonAction { 
                    ValeurRayon = 50,
                    DateDebutChRay = DateTime.Now,
                    DateFinChRay = DateTime.Now,
@@ -186,7 +186,7 @@ namespace TestBaseDeDonner
 
                 db.ListVille.Add(new ReferentielVille { LibelleVille = "Caen", CodePostal = 14000, IdentifiantRegion =1});
                 db.ListVille.Add(new ReferentielVille{ LibelleVille = "Rennes", CodePostal = 35000, IdentifiantRegion =1});
-
+                db.ShoppingCartItems.Add(new ShoppingCartItem { Amount =0});
                 
                 db.SaveChanges();//Sauvgarder ce qu'on a creer quant même !!
             }

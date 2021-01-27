@@ -52,6 +52,7 @@ namespace GestionProduits.Controllers
             IEnumerable<Categorie> cats = dbContext.ListeCategories.ToList();
             ViewBag.categories = cats;
             return View("FormDemande",p);
+           
         }
         [HttpPost]
             public IActionResult SaveDemande(Demande p)

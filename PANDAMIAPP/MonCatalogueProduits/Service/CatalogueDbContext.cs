@@ -11,7 +11,7 @@ namespace MonCatalogueProduit.Service
     {
 
         public DbSet<Demande> ListeDemandes { set; get; }
-        public DbSet<DomaineActivite> ListeDomaineActiviter { set; get; }
+        public DbSet<Categorie> ListeCategories { set; get; }
         public DbSet<CategorieDomaine> CategoriesDomaines { set; get; }
         public DbSet<Materiel> ListMateriel { set; get; }
         public DbSet<Reponse> ListReponse { set; get; }
@@ -28,7 +28,9 @@ namespace MonCatalogueProduit.Service
         public DbSet<Indisponibilite>ListIndisponiblite { get; set; }
         public DbSet<ReferentielRegion> ListRegion { get; set; }
         public DbSet<ReferentielVille> ListVille { get; set; }
-        public object PreferenceJourHoraire { get; internal set; }
+        public DbSet<ShoppingCartItem> ShoppingCartItems { get; set; }
+
+
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
