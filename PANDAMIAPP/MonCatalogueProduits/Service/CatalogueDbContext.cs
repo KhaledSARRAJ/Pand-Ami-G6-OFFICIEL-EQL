@@ -11,7 +11,7 @@ namespace MonCatalogueProduit.Service
     {
 
         public DbSet<Demande> ListeDemandes { set; get; }
-        public DbSet<DomaineActivite> ListeDomaineActivite { set; get; }
+        public DbSet<DomaineActivite> ListeDomaineActiviter { set; get; }
         public DbSet<CategorieDomaine> CategoriesDomaines { set; get; }
         public DbSet<Materiel> ListMateriel { set; get; }
         public DbSet<Reponse> ListReponse { set; get; }
@@ -33,7 +33,7 @@ namespace MonCatalogueProduit.Service
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             //Nom de serveur + Nom de base de donneer + 
-            optionsBuilder.UseSqlServer("Server=FORM222\\SQLEXPRESS; Database=Pandami;Trusted_Connection=True");
+            optionsBuilder.UseSqlServer("Server=(localdb)\\MSSQLLocalDB; Database=Pandami;Trusted_Connection=True");
         }
     }
 }

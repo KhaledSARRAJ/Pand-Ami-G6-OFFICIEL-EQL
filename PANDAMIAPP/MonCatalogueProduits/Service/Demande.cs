@@ -13,19 +13,29 @@ namespace MonCatalogueProduit.Service
     {
         [Key]
         public int DemandeID { get; set; }
-        [Required, MinLength(6), MaxLength(70)] //
-                                                // [StringLength(70)] // taille 
-        public DateTime DateEnregistrementDemande { get; set; }
-        // [Required,Range(10,500000)]
-        public DateTime DatedeRealisation { get; set; }
-        public DateTime heureSouhaitee { get; set; }
+        
+
+        // [StringLength(70)] // taille 
+        //[DataType(DataType.DateTime)]
+        [Required]
+        [MinLength(4), MaxLength(140)]
+        public string DateEnregistrementDemande { get; set; }
+
+        //[DataType(DataType.DateTime)]
+        [Required]
+        [MinLength(4), MaxLength(140)]
+        public string DatedeRealisation { get; set; }
+        public string heureSouhaitee { get; set; }
+        [Required]
+        [MinLength(4), MaxLength(140)]
         public string Description { get; set; }
-        public DateTime DateClotureDemande { get; set; }
-        public DateTime DateModification { get; set; }
-        public DateTime DateAnnulationDemande { get; set; }
+        
+        public string DateClotureDemande { get; set; }
+        public string DateModification { get; set; }
+        public string DateAnnulationDemande { get; set; }
         public string adressesecondaire { get; set; }
-        public int IdentifiantDomaine { get; set; }
-        [ForeignKey("DomaineActID")]  // clè etranger
+        public int CategoriesID { get; set; }
+        [ForeignKey("CategoriesID")]
         public int IdentifiantMateriel{ get; set; }
         [ForeignKey("MaterielID")]
         public int IdentifiantMAnnulation { get; set; }
@@ -36,7 +46,8 @@ namespace MonCatalogueProduit.Service
 
         //lazy loading : eviter de charger les entités lièes en mèmoire sans en avoir besoin
         //include aprés pour l'appeler
-        public virtual DomaineActivite Domactiviter { get; set; }
+        public virtual Categorie categorieDemande { get; set; }
+
         public virtual Materiel materiels { get; set; }
         public virtual ICollection<Reponse> DemandeReponse {get; set;}
         public virtual ICollection<Satisfaction> DemandeSatisfaction { get; set; }

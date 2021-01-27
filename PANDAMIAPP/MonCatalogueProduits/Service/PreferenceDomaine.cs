@@ -19,7 +19,7 @@ namespace GestionProduits.Service
         public Utilisateur PreferenceDomaineUtilisateur { get; set; }
         public int IdentifiantDomaineActiviter { get; set; }
         [ForeignKey("DomaineActID")]
-        public DomaineActivite PreferenceDomaineDomaineActivite { get; set; }
+        public Categorie PreferenceDomaineDomaineActivite { get; set; }
 
     }
 }

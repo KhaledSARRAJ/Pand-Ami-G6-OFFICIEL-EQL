@@ -16,6 +16,6 @@ namespace GestionProduits.Service
             [StringLength(30)]       //pour spécifier la taille à modifier
             public string libelleCategorie { get; set; }          
            
-       public virtual ICollection<DomaineActivite> DomainesActivitesCategorie { get; set; }//
+       public virtual ICollection<Categorie> DomainesActivitesCategorie { get; set; }//
     }
 }

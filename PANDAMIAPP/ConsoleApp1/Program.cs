@@ -11,12 +11,12 @@ namespace TestBaseDeDonner
             using (var db = new CatalogueDbContext())//using son but est de creer l'objet dbContext mais quant on arrive à la fin de crochet il le ferme 
             {//var : variable dynamique
              //Creation de la base de données           
-                 
-                  db.Database.EnsureDeleted(); // supprime moi tout 
-                  db.Database.EnsureCreated(); // creer moi tout au exécution (attention juste pour la premiere exécution) aprés il faut les mettres en commentaire
-           
+             /*
+                db.Database.EnsureDeleted(); // supprime moi tout 
+                db.Database.EnsureCreated(); // creer moi tout au exécution (attention juste pour la premiere exécution) aprés il faut les mettres en commentaire
 
-                /*Ajouter quelques categorie */
+
+                //Ajouter quelques categorie 
                 db.CategoriesDomaines.Add(new CategorieDomaine { libelleCategorie ="Medical"});
                 db.CategoriesDomaines.Add(new CategorieDomaine { libelleCategorie = "Agricole" });
                 db.CategoriesDomaines.Add(new CategorieDomaine { libelleCategorie = "Construction" });
@@ -25,60 +25,61 @@ namespace TestBaseDeDonner
                 db.ListMateriel.Add(new Materiel { LibelleMateriel = "Marteau" });
                 db.ListMateriel.Add(new Materiel { LibelleMateriel = "Ponsseuce" });
                 //Ajouter quelques Domaine d'activiter
-                db.ListeDomaineActiviter.Add(
-                    new DomaineActivite { LibelleDomaine = "Bricolage", CategorieDomaineID=1, MaterielID = 3}
+                db.ListeCategories.Add(
+                    new Categorie { LibelleDomaine = "Medical", CategorieDomaineID=1, MaterielID = 3}
                     );
-                db.ListeDomaineActiviter.Add(
-                    new DomaineActivite { LibelleDomaine = "Courses", CategorieDomaineID = 1, MaterielID = 3 }
+                db.ListeCategories.Add(
+                    new Categorie { LibelleDomaine = "Agricole", CategorieDomaineID = 1, MaterielID = 1 }
                     );
-                db.ListeDomaineActiviter.Add(
-                    new DomaineActivite { LibelleDomaine = "Menages", CategorieDomaineID = 2, MaterielID = 2 }
+                db.ListeCategories.Add(
+                  new Categorie { LibelleDomaine = "Construction", CategorieDomaineID = 1, MaterielID = 2 }
+                  );
+                db.ListeCategories.Add(
+    new Categorie { LibelleDomaine = "Medical", CategorieDomaineID = 1, MaterielID = 3 }
+    );
+                db.ListeCategories.Add(
+                    new Categorie { LibelleDomaine = "Agricole", CategorieDomaineID = 1, MaterielID = 1 }
                     );
-                db.ListeDomaineActiviter.Add(
-                    new DomaineActivite { LibelleDomaine = "Achat", CategorieDomaineID = 3, MaterielID = 1 }
+                db.ListeCategories.Add(
+                  new Categorie { LibelleDomaine = "Construction", CategorieDomaineID = 1, MaterielID = 2 }
+                  ); db.ListeCategories.Add(
+     new Categorie { LibelleDomaine = "Medical", CategorieDomaineID = 1, MaterielID = 3 }
+     );
+                db.ListeCategories.Add(
+                    new Categorie { LibelleDomaine = "Agricole", CategorieDomaineID = 1, MaterielID = 1 }
                     );
+                db.ListeCategories.Add(
+                  new Categorie { LibelleDomaine = "Construction", CategorieDomaineID = 1, MaterielID = 2 }
+                  );*/
                 //Ajouter quelques Demande  
                 //En deuxiéme lancement garder que les produits pour ajouter
-                db.ListeDemandes.Add(new Demande { DateEnregistrementDemande= DateTime.Now, DatedeRealisation = DateTime.Now,
-                   heureSouhaitee = DateTime.Now,
-                   Description = "J'ai besoin d'une voiture rouge type Hondai budget 3000 milles euros",
-                   DateClotureDemande = DateTime.Now,
-                   DateModification = DateTime.Now,
-                   DateAnnulationDemande = DateTime.Now,
-                   adressesecondaire ="Caen",
-                   IdentifiantDomaine = 1,
+                db.ListeDemandes.Add(new Demande {
+                    CategoriesID=1,
+                    Description="Faire des courses",                   
                    IdentifiantMateriel = 3,
-                   IdentifiantMAnnulation = 1,
+                    DateEnregistrementDemande = "12/12/2020",
+                    DatedeRealisation = "12/12/2020",
+                    IdentifiantMAnnulation = 1,
                    IdentifiantUtilisateur=1
                 });
                 db.ListeDemandes.Add(new Demande
                 {
-                    DateEnregistrementDemande = DateTime.Now,
-                    DatedeRealisation = DateTime.Now,
-                    heureSouhaitee = DateTime.Now,
-                    Description = "J'ai besoin d'une voiture rouge type Hondai budget 3000 milles euros",
-                    DateClotureDemande = DateTime.Now,
-                    DateModification = DateTime.Now,
-                    DateAnnulationDemande = DateTime.Now,
-                    adressesecondaire = "Caen",
-                    IdentifiantDomaine = 2,
+                    CategoriesID = 3,
+                    Description = "Aide médical",
                     IdentifiantMateriel = 2,
-                    IdentifiantMAnnulation = 1,
-                    IdentifiantUtilisateur = 1
+                    DateEnregistrementDemande = "12/12/2020",
+                    DatedeRealisation = "12/12/2020",
+                    IdentifiantMAnnulation = 2,
+                    IdentifiantUtilisateur = 2
                 });
                 db.ListeDemandes.Add(new Demande
                 {
-                    DateEnregistrementDemande = DateTime.Now,
-                    DatedeRealisation = DateTime.Now,
-                    heureSouhaitee = DateTime.Now,
-                    Description = "J'ai besoin d'une voiture rouge type Hondai budget 3000 milles euros",
-                    DateClotureDemande = DateTime.Now,
-                    DateModification = DateTime.Now,
-                    DateAnnulationDemande = DateTime.Now,
-                    adressesecondaire = "Caen",
-                    IdentifiantDomaine = 3,
-                    IdentifiantMateriel = 1,
+                    CategoriesID = 2,
+                    Description = "Faire des courses",
+                    IdentifiantMateriel = 3,
                     IdentifiantMAnnulation = 1,
+                    DateEnregistrementDemande= "12/12/2020",
+                    DatedeRealisation = "12/12/2020",
                     IdentifiantUtilisateur = 1
                 });
 

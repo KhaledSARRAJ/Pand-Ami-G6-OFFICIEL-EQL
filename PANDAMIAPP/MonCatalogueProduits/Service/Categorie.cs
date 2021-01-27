@@ -9,10 +9,10 @@ using MonCatalogueProduit.Service;
 namespace GestionProduits.Service
 {
     [Table("CATEGORIEACTIVITE")]
-    public class DomaineActivite
+    public class Categorie
     {
         [Key]
-        public int DomaineActID { get; set; }
+        public int CategoriesID { get; set; }
         public string LibelleDomaine { get; set; }
         [StringLength(80)]
         public int CategorieDomaineID { get; set; }
