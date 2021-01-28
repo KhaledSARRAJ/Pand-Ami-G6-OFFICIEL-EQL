@@ -3,18 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using GestionProduits.Service;
-using GestionProduits.Service.Interfaces;
+
 using GestionProduits.Service.ViewModels;
 using Microsoft.AspNetCore.Mvc;
+using MonCatalogueProduit.Service;
 
 namespace GestionProduits.Controllers
 {
     public class ShoppingCartController : Controller
     {
-        private readonly IDemandeRepository _demandeRepository;
+        private readonly CatalogueDbContext _demandeRepository;
         private readonly ShoppingCart _shoppingCart;
 
-        public ShoppingCartController(IDemandeRepository demandeRepository, ShoppingCart shoppingCart)
+        public ShoppingCartController(CatalogueDbContext demandeRepository, ShoppingCart shoppingCart)
         {
             _demandeRepository = demandeRepository;
             _shoppingCart = shoppingCart;
@@ -33,7 +34,7 @@ namespace GestionProduits.Controllers
         }
         public RedirectToActionResult AddToShoppingCart(int demandeId)
         {
-            var selectedDemande = _demandeRepository.Demandes.FirstOrDefault(p => p.DemandeID == demandeId);
+            var selectedDemande = _demandeRepository.ListeDemandes.FirstOrDefault(p => p.DemandeID == demandeId);
             if (selectedDemande != null)
             {
                 _shoppingCart.AddToCart(selectedDemande, 1);
@@ -42,7 +43,7 @@ namespace GestionProduits.Controllers
         }
         public RedirectToActionResult RemoveFromShoppingCart(int demandeId)
         {
-            var selectedDemande = _demandeRepository.Demandes.FirstOrDefault(p => p.DemandeID == demandeId);
+            var selectedDemande = _demandeRepository.ListeDemandes.FirstOrDefault(p => p.DemandeID == demandeId);
             if (selectedDemande != null)
             {
                 _shoppingCart.RemoveFromCart(selectedDemande);
