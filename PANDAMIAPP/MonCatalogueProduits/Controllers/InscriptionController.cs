@@ -15,28 +15,30 @@ namespace GestionProduits.Controllers
         {
             this.dbContext = db;
         }
-        public IActionResult Index()
+        public IActionResult SaveUtilisateur()
         {
-            return View();
-        }
-        [HttpGet]
-        public ActionResult AddOrEdit(int id = 0)
-        {
-            Utilisateur userModel = new Utilisateur();
-            return View(userModel);
-        }
-        [HttpPost]
-        public ActionResult AddOrEdit(Utilisateur userModel)
-        {
-            using (dbContext)
-            {
-                dbContext.ListUtilisateurs.Add(userModel);
-                dbContext.SaveChanges();
-            }
-            ModelState.Clear();
-            ViewBag.SuccessMessage = "Vous êtes bien enregistrer";
-            return View("AddOrEdit", new Utilisateur());
+            Utilisateur p = new Utilisateur();
+            IEnumerable<Utilisateur> cats = dbContext.ListUtilisateurs;
+            ViewBag.utilisateurs = cats;
+            return View("SaveUtilisateur", p);
 
         }
+        [HttpPost]
+        public IActionResult SaveUtilisateur(Utilisateur p)
+        {
+            IEnumerable<Utilisateur> cats = dbContext.ListUtilisateurs; 
+            ViewBag.utilisateurs = cats;
+
+            if (ModelState.IsValid)
+            {
+                dbContext.ListUtilisateurs.Add(p);
+                dbContext.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            return View("", p);
+
+        }
+
     }
 }

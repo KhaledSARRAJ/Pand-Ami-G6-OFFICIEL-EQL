@@ -34,14 +34,15 @@ namespace MonCatalogueProduit.Service
         public string DateModification { get; set; }
         public string DateAnnulationDemande { get; set; }
         public string adressesecondaire { get; set; }
-        public int CategoriesID { get; set; }
-        [ForeignKey("CategoriesID")]
-        public int IdentifiantMateriel{ get; set; }
+        [ForeignKey("CategoriesID")]   ////probleme à farid 
+        public int CategoriesID { get; set; } //proble à farid
         [ForeignKey("MaterielID")]
-        public int IdentifiantMAnnulation { get; set; }
+        public int IdentifiantMateriel{ get; set; }
         [ForeignKey("MotifAnnulationID")]
+        public int IdentifiantMAnnulation { get; set; }
+        //[ForeignKey("UtilisateurID")]
         public int IdentifiantUtilisateur { get; set; }
-        [ForeignKey("UtilisateurID")]
+        
         public Utilisateur DemandeUtilisateur { get; set; }
 
         //lazy loading : eviter de charger les entités lièes en mèmoire sans en avoir besoin

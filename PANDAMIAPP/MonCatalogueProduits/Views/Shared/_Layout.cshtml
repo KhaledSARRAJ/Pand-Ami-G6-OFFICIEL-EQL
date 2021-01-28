@@ -33,13 +33,17 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    @await Component.InvokeAsync("ShoppingCartSummary")
+                  
+
                     @await Component.InvokeAsync("CategoryMenu")
                     <li><a asp-area="" asp-controller="Home" asp-action="Volontaire">Preference</a></li>
-                    <li><a asp-area="" asp-controller="Register" asp-action="Index">Connexion</a></li>
-                    <li><a asp-area="" asp-controller="Inscription" asp-action="AddOrEdit">Inscription</a></li>
+                    <li><a asp-area="" asp-controller="Inscription" asp-action="SaveUtilisateur">Connexion</a></li>
+
+                    @await Component.InvokeAsync("ShoppingCartSummary")
 
                 </ul>
+ 
+                
             </div>
         </div>
     </nav>
@@ -75,7 +79,7 @@
             </script>
             <script src="~/js/site.min.js" asp-append-version="true"></script>
         </environment>
-
+    <script src="/lib/jquery/dist/jquery.min.js"></script>
         @RenderSection("Scripts", required: false)
 </body>
 </html>
