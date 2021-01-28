@@ -36,7 +36,7 @@
                     <li><a asp-area="" asp-controller="Demande" asp-action="Index">Demandes</a></li>
                     <li><a asp-area="" asp-controller="Home" asp-action="Volontaire">Preference</a></li>
                     <li><a asp-area="" asp-controller="Register" asp-action="Index">Connexion</a></li>
-                       </ul>
+                </ul>
             </div>
         </div>
     </nav>
@@ -51,6 +51,10 @@
             <p>&copy; 2021 - Pand'AMI (Orane, Mikael, Khaled)</p>
         </footer>
     </div>
+
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    @RenderSection("Scripts",false)
 
     <environment include="Development">
         <script src="~/lib/jquery/dist/jquery.js"></script>
