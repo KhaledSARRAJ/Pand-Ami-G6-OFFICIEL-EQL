@@ -12,44 +12,44 @@ namespace TestBaseDeDonner
             {//var : variable dynamique
              //Creation de la base de données           
                 
+
                 db.Database.EnsureDeleted(); // supprime moi tout 
                 db.Database.EnsureCreated(); // creer moi tout au exécution (attention juste pour la premiere exécution) aprés il faut les mettres en commentaire
 
 
-                //Ajouter quelques categorie 
-                db.CategoriesDomaines.Add(new CategorieDomaine { libelleCategorie ="Medical"});
-                db.CategoriesDomaines.Add(new CategorieDomaine { libelleCategorie = "Agricole" });
-                db.CategoriesDomaines.Add(new CategorieDomaine { libelleCategorie = "Construction" });
+
+
                 //Ajouter quelques Materiels 
-                db.ListMateriel.Add(new Materiel { LibelleMateriel = "Voiture" });
-                db.ListMateriel.Add(new Materiel { LibelleMateriel = "Marteau" });
-                db.ListMateriel.Add(new Materiel { LibelleMateriel = "Ponsseuce" });
+                //.ListMateriel.Add(new Materiel { LibelleMateriel = "Voiture" });
+                //db.ListMateriel.Add(new Materiel { LibelleMateriel = "Marteau" });
+               // db.ListMateriel.Add(new Materiel { LibelleMateriel = "Ponsseuce" });
                 //Ajouter quelques Domaine d'activiter
-                db.ListeCategories.Add(
-                    new Categorie { LibelleDomaine = "Menage", CategorieDomaineID=1, MaterielID = 3}
+              db.ListDomaines.Add(
+                    new Domaine { NomDomaine = "Exterieur"}
                     );
-                db.ListeCategories.Add(
-                    new Categorie { LibelleDomaine = "Agricole", CategorieDomaineID = 1, MaterielID = 1 }
+                db.ListDomaines.Add(
+                    new Domaine { NomDomaine = "Interieur" }
                     );
-                db.ListeCategories.Add(
-                  new Categorie { LibelleDomaine = "Construction", CategorieDomaineID = 1, MaterielID = 2 }
+
+               db.ListeCategories.Add(
+                  new Categorie { LibelleDomaine = "Construction", CategorieDomainesID=1 }
                   );
                 db.ListeCategories.Add(
-    new Categorie { LibelleDomaine = "Medical", CategorieDomaineID = 1, MaterielID = 3 }
+    new Categorie { LibelleDomaine = "Medical", CategorieDomainesID = 2 }
     );
                 db.ListeCategories.Add(
-                    new Categorie { LibelleDomaine = "logistique", CategorieDomaineID = 1, MaterielID = 1 }
+                    new Categorie { LibelleDomaine = "logistique", CategorieDomainesID = 1 }
                     );
                 db.ListeCategories.Add(
-                  new Categorie { LibelleDomaine = "Bricolage", CategorieDomaineID = 1, MaterielID = 2 }
+                  new Categorie { LibelleDomaine = "Bricolage", CategorieDomainesID = 2 }
                   ); db.ListeCategories.Add(
-     new Categorie { LibelleDomaine = "Garde enfant", CategorieDomaineID = 1, MaterielID = 3 }
+     new Categorie { LibelleDomaine = "Garde enfant", CategorieDomainesID = 1 }
      );
                 db.ListeCategories.Add(
-                    new Categorie { LibelleDomaine = "Garde animal", CategorieDomaineID = 1, MaterielID = 1 }
+                    new Categorie { LibelleDomaine = "Garde animal", CategorieDomainesID = 2 }
                     );
                 db.ListeCategories.Add(
-                  new Categorie { LibelleDomaine = "Nettoyage", CategorieDomaineID = 1, MaterielID = 2 }
+                  new Categorie { LibelleDomaine = "Nettoyage", CategorieDomainesID = 1 }
                   );
                 //Ajouter quelques Demande  
                 //En deuxiéme lancement garder que les produits pour ajouter
@@ -64,7 +64,7 @@ namespace TestBaseDeDonner
                 });
                 db.ListeDemandes.Add(new Demande
                 {
-                    CategoriesID = 3,
+                    CategoriesID = 2,
                     Description = "Aide médical",
                     IdentifiantMateriel = 2,
                     DateEnregistrementDemande = "12/12/2020",
@@ -126,7 +126,7 @@ namespace TestBaseDeDonner
                     NumTel = 0605810246,
                     NomDeRue  ="allee du pere jamet",
                     NumeroRue = 4,
-                    MotDePasse = "ORANEMIKhALED",
+                    Password = "ORANEMIKhALED",
                     DateDeDesinscription = DateTime.Now,
                     identifiantSexeUser=1,
                     identifiantMotifDesinscription=1,

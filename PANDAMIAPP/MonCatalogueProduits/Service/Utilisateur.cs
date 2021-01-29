@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -18,18 +19,26 @@ namespace GestionProduits.Service
         public string Prenom { get; set; }
         [StringLength(40)]
         public DateTime DateDeNaissance { get; set; }
+       // [Required(ErrorMessage ="Ce Champs est obligatoire !!")]
         public string NomUtilisateur { get; set; }
-        [StringLength(20)]
+        [Required(ErrorMessage = "Ce Champs est obligatoire !!")]
+      
         public string AdresseMail { get; set; }
-        [StringLength(50)]
+        
         public DateTime DateInscription { get; set; }
         public int NumTel { get; set; }
-        [Required, Range(0, 10)]
+        
         public string NomDeRue { get; set; }
-        [StringLength(80)]
+       
         public int NumeroRue { get; set; }
-        [Required, Range(0, 6)]
-        public string MotDePasse { get; set; }
+        
+        [DataType(DataType.Password)]
+        public string Password { get; set; }
+        [DataType(DataType.Password)]
+        [DisplayName("Confirm Password")]
+        [Compare("Password")]
+        public string ConfirmerMotDePasse { get; set; }
+       
         public DateTime DateDeDesinscription { get; set; }
         public int identifiantSexeUser { get; set; }
         [ForeignKey("SexeID")]
@@ -41,7 +50,7 @@ namespace GestionProduits.Service
         [ForeignKey("VilleID")]
         public ReferentielVille UtilisateurReferentielVille { get; set; }
 
-
+        public bool IsAdmin { get; set; }
 
         public virtual ICollection<Demande> UtilisateurDemande { get; set; }
         public virtual ICollection<Reponse> UtilisateurReponse { get; set; }

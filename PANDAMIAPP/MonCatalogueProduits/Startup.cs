@@ -4,6 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 
 using GestionProduits.Service;
+
+
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -68,6 +70,10 @@ namespace GestionProduits
                 routes.MapRoute(
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
+                routes.MapRoute(
+                           name: "categoryfilter",
+                           template: "Demande/{action}/{category?}",
+                           defaults: new { Controller = "Demande", action = "List" });
             });
         }
     }

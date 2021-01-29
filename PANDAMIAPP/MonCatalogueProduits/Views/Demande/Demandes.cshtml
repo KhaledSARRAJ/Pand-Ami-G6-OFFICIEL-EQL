@@ -1,4 +1,6 @@
-﻿@model IEnumerable<MonCatalogueProduit.Service.Demande>
+﻿@using MonCatalogueProduit.Service;
+
+@model DemandesListViewModel
 @{ ViewData["Title"] = "Liste des Demandes"; }
 <h2>
 </h2>
@@ -33,15 +35,14 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @{ foreach (var p in Model)
+                    @{ foreach (Demande p in Model.Demandes)
                         {
                             <tr>
                             <td>@p.DemandeID </td>
                         <td>@p.Description </td>
-
                         <td>@p.DateEnregistrementDemande </td>
                         <td>@p.DatedeRealisation </td>
-                        <td>@p.categorieDemande.LibelleDomaine </td>
+                        <td>@p.categorieDemande.LibelleDomaine</td>
                         
 
 

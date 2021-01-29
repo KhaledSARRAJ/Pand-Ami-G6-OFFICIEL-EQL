@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using GestionProduits.Service;
+
+using GestionProduits.Service.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MonCatalogueProduit.Service;
@@ -16,9 +18,9 @@ namespace GestionProduits.Controllers
         {
             this.dbContext = db;
         }
-        public IActionResult Index(int page=0, int size =6, string motCle="")
+        public IActionResult Index(int page=0, int size =6, string motCle="", int category =0)
         {
-
+            //pagination
             int position = page * size;
             IEnumerable<Demande> demandes = dbContext
                 .ListeDemandes
@@ -44,7 +46,30 @@ namespace GestionProduits.Controllers
             ViewBag.motCle = motCle;
 
             ViewBag.totalPages = totalPages;
-            return View("Demandes",demandes);
+
+
+            //Selection par categorie : exterieur/interieur/Tout
+            if (category == 0)
+            {
+                demandes = dbContext.ListeDemandes.OrderBy(p => p.DemandeID);
+                // currentCategory = "All demandes";
+            }
+            else
+            {
+                demandes = dbContext.ListeDemandes.Where(p => p.CategoriesID == category);//p.categorieDemande.CategorieDomainesID.Equals(_category)).OrderBy(p => p.DemandeID);      
+                //currentCategory = _category;
+            }
+
+
+            ViewBag.demandes = demandes;
+
+
+         // return View("Demandes",demandes);
+               return View("Demandes", new DemandesListViewModel
+              {
+             Demandes = demandes,
+            //  CurrentCategory = currentCategory
+              });
         }
         public IActionResult FormDemande()
         {
@@ -103,5 +128,42 @@ namespace GestionProduits.Controllers
             }
         }
 
+       // public ViewResult List(int category)
+        //{
+          //  int _category = category;
+           // IEnumerable<Demande> demandes;
+          //  int currentCategory;
+
+          //  if (category ==0)
+          //  {
+            //    demandes = dbContext.ListeDemandes.OrderBy(p => p.DemandeID);
+               // currentCategory = "All demandes";
+           // }
+           // else
+           // {
+            //    demandes = dbContext.ListeDemandes.Where(p => p.categorieDemande.CategorieDomainesID == category);//p.categorieDemande.CategorieDomainesID.Equals(_category)).OrderBy(p => p.DemandeID);      
+            //    currentCategory = _category;
+          //  }
+
+
+           // ViewBag.demandes = demandes;
+            //ViewBag.currentCategory = currentCategory;
+
+   
+         //   return View("Demandes", new DemandesListViewModel
+          //  {
+               // Demandes = demandes,
+              //  CurrentCategory = currentCategory
+          //  });
+     //   }
+        public ViewResult Details(int demandeId)
+        {
+            var demande = dbContext.ListeDemandes.FirstOrDefault(d => d.DemandeID == demandeId);
+            if (demande == null)
+            {
+                return View("~/Views/Error/Error.cshtml");
+            }
+            return View(demande);
+        }
     }
 }

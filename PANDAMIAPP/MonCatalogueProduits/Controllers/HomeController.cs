@@ -5,11 +5,19 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using GestionProduits.Models;
+using MonCatalogueProduit.Service;
 
 namespace GestionProduits.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly CatalogueDbContext _dbContext;
+        public HomeController(CatalogueDbContext dbContext)
+        {
+            this._dbContext = dbContext;
+        }
+
+
         public IActionResult Index()
         {
             return View();
