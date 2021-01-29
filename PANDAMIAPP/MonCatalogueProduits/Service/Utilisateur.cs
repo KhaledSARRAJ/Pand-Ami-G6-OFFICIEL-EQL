@@ -8,38 +8,42 @@ using System.Threading.Tasks;
 using MonCatalogueProduit.Service;
 
 namespace GestionProduits.Service
-{
+{  
+   
     [Table("UTILISATEUR")]
     public class Utilisateur
     {
         [Key]
         public int UtilisateurID { get; set; }
         public string Nom { get; set; }
-        [StringLength(40)]
+       // [StringLength(40)]
         public string Prenom { get; set; }
-        [StringLength(40)]
-        public DateTime DateDeNaissance { get; set; }
+        //[StringLength(40)]
+        public string DateDeNaissance { get; set; }
        // [Required(ErrorMessage ="Ce Champs est obligatoire !!")]
         public string NomUtilisateur { get; set; }
-        [Required(ErrorMessage = "Ce Champs est obligatoire !!")]
+      //  [Required(ErrorMessage = "Ce Champs est obligatoire !!")]
       
         public string AdresseMail { get; set; }
         
-        public DateTime DateInscription { get; set; }
+        public string DateInscription { get; set; }
         public int NumTel { get; set; }
         
         public string NomDeRue { get; set; }
+        public string AutreTel { get; set; }
        
         public int NumeroRue { get; set; }
-        
-        [DataType(DataType.Password)]
+        public double CodePostal { get; set; }
+
+        public string Ville { get; set; }
+        //[DataType(DataType.Password)]
         public string Password { get; set; }
-        [DataType(DataType.Password)]
-        [DisplayName("Confirm Password")]
-        [Compare("Password")]
+      //  [DataType(DataType.Password)]
+        //[DisplayName("Confirm Password")]
+       // [Compare("Password")]
         public string ConfirmerMotDePasse { get; set; }
        
-        public DateTime DateDeDesinscription { get; set; }
+        public string DateDeDesinscription { get; set; }
         public int identifiantSexeUser { get; set; }
         [ForeignKey("SexeID")]
         public ReferenctielSexe UtilisateurSexe { get; set; }
@@ -51,6 +55,9 @@ namespace GestionProduits.Service
         public ReferentielVille UtilisateurReferentielVille { get; set; }
 
         public bool IsAdmin { get; set; }
+        public bool IsEmailVerified { get; set; }
+        
+        public System.Guid ActivationCode { get; set; }
 
         public virtual ICollection<Demande> UtilisateurDemande { get; set; }
         public virtual ICollection<Reponse> UtilisateurReponse { get; set; }

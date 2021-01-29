@@ -11,46 +11,47 @@ namespace TestBaseDeDonner
             using (var db = new CatalogueDbContext())//using son but est de creer l'objet dbContext mais quant on arrive à la fin de crochet il le ferme 
             {//var : variable dynamique
              //Creation de la base de données           
-                
 
-                db.Database.EnsureDeleted(); // supprime moi tout 
+
+               db.Database.EnsureDeleted(); // supprime moi tout 
                 db.Database.EnsureCreated(); // creer moi tout au exécution (attention juste pour la premiere exécution) aprés il faut les mettres en commentaire
 
 
 
 
                 //Ajouter quelques Materiels 
-                //.ListMateriel.Add(new Materiel { LibelleMateriel = "Voiture" });
-                //db.ListMateriel.Add(new Materiel { LibelleMateriel = "Marteau" });
-               // db.ListMateriel.Add(new Materiel { LibelleMateriel = "Ponsseuce" });
+                //  /db.ListMateriel.Add(new Materiel { LibelleMateriel = "Voiture" });
+                //  db.ListMateriel.Add(new Materiel { LibelleMateriel = "Marteau" });
+                //  db.ListMateriel.Add(new Materiel { LibelleMateriel = "Ponsseuce" });
                 //Ajouter quelques Domaine d'activiter
               db.ListDomaines.Add(
-                    new Domaine { NomDomaine = "Exterieur"}
-                    );
-                db.ListDomaines.Add(
-                    new Domaine { NomDomaine = "Interieur" }
-                    );
+                      new Domaine { NomDomaine = "Exterieur" }
+                     );
+              db.ListDomaines.Add(
+                       new Domaine { NomDomaine = "Interieur" }
+   );
 
                db.ListeCategories.Add(
-                  new Categorie { LibelleDomaine = "Construction", CategorieDomainesID=1 }
+                new Categorie { LibelleDomaine = "Construction", CategorieDomainesID = 1 }
                   );
-                db.ListeCategories.Add(
-    new Categorie { LibelleDomaine = "Medical", CategorieDomainesID = 2 }
-    );
-                db.ListeCategories.Add(
-                    new Categorie { LibelleDomaine = "logistique", CategorieDomainesID = 1 }
-                    );
-                db.ListeCategories.Add(
+               db.ListeCategories.Add(
+   new Categorie { LibelleDomaine = "Medical", CategorieDomainesID = 2 }
+   );
+             db.ListeCategories.Add(
+                   new Categorie { LibelleDomaine = "logistique", CategorieDomainesID = 1 }
+                   );
+               db.ListeCategories.Add(
                   new Categorie { LibelleDomaine = "Bricolage", CategorieDomainesID = 2 }
-                  ); db.ListeCategories.Add(
-     new Categorie { LibelleDomaine = "Garde enfant", CategorieDomainesID = 1 }
+                  );
+               db.ListeCategories.Add(
+      new Categorie { LibelleDomaine = "Garde enfant", CategorieDomainesID = 1 }
      );
                 db.ListeCategories.Add(
-                    new Categorie { LibelleDomaine = "Garde animal", CategorieDomainesID = 2 }
-                    );
-                db.ListeCategories.Add(
-                  new Categorie { LibelleDomaine = "Nettoyage", CategorieDomainesID = 1 }
-                  );
+                   new Categorie { LibelleDomaine = "Garde animal", CategorieDomainesID = 2 }
+                   );
+               db.ListeCategories.Add(
+                 new Categorie { LibelleDomaine = "Nettoyage", CategorieDomainesID = 1 }
+                );
                 //Ajouter quelques Demande  
                 //En deuxiéme lancement garder que les produits pour ajouter
                 db.ListeDemandes.Add(new Demande {
@@ -119,15 +120,15 @@ namespace TestBaseDeDonner
                 {
                     Nom = "Khaled",
                     Prenom = "SARRAJ",
-                    DateDeNaissance = DateTime.Now,
+                    DateDeNaissance = "aaa",
                     NomUtilisateur = "KOUKI",
                     AdresseMail = "Khaledinat@gmail.com",
-                    DateInscription = DateTime.Now,
+                    DateInscription = "aaa",
                     NumTel = 0605810246,
                     NomDeRue  ="allee du pere jamet",
                     NumeroRue = 4,
                     Password = "ORANEMIKhALED",
-                    DateDeDesinscription = DateTime.Now,
+                    DateDeDesinscription = "aaa",
                     identifiantSexeUser=1,
                     identifiantMotifDesinscription=1,
                     IdentifiantReferentielVille=1
