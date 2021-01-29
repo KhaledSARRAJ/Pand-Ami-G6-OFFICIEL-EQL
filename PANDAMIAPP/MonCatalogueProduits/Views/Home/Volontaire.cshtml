@@ -1,17 +1,254 @@
-﻿<!DOCTYPE html>
-<html lang="fr">
+﻿@using MonCatalogueProduit.Service;
+@using GestionProduits.ViewModels;
+
+@model PreferenceJourHoraire
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Page Preferences</title>
-    <link rel="stylesheet" href="bootstrap.css">
-    <link rel="stylesheet" href="style.css">
+    <meta charset="utf-8">
+    <title>Preferences</title>
+    <link rel="stylesheet" href="stylePreferences.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 </head>
-
 <body>
+    <div class="container">
+        <header>Enregistrer une préférence</header>
+        <div class="progress-bar">
+            <div class="step">
+                <p>Quand ?</p>
+                <div class="bullet">
+                    <span>1</span>
+                </div>
+                <div class="check fas fa-check"></div>
+            </div>
+            <div class="step">
+                <p>Quoi ?</p>
+                <div class="bullet">
+                    <span>2</span>
+                </div>
+                <div class="check fas fa-check"></div>
+            </div>
+            <div class="step">
+                <p>Où ?</p>
+                <div class="bullet">
+                    <span>3</span>
+                </div>
+                <div class="check fas fa-check"></div>
+            </div>
+            <div class="step">
+                <p>Dates ?</p>
+                <div class="bullet">
+                    <span>4</span>
+                </div>
+                <div class="check fas fa-check"></div>
+            </div>
+        </div>
+        <div class="form-outer">
+            <form action="#">
+                <div class="page slide-page">
+                    <div class="title">Je dis quand je suis disponible :</div>
 
-    >
+                    <div class="field">
+                        <div class="label">J'indique le jour :</div>
+                        <select>
+                            <option></option>
+                            <option>Lundi</option>
+                            <option>Mardi</option>
+                            <option>Mercredi</option>
+                            <option>Jeudi</option>
+                            <option>Vendredi</option>
+                            <option>Samedi</option>
+                            <option>Dimanche</option>
+                        </select>
+                    </div>
+
+                    <div class="field">
+                        <div class="label">J'indique l'heure de début :</div>
+                        <select>
+                            <option></option>
+                            <option>00h00</option>
+                            <option>01h00</option>
+                            <option>02h00</option>
+                            <option>03h00</option>
+                            <option>04h00</option>
+                            <option>05h00</option>
+                            <option>06h00</option>
+                            <option>07h00</option>
+                            <option>08h00</option>
+                            <option>09h00</option>
+                            <option>10h00</option>
+                            <option>11h00</option>
+                            <option>12h00</option>
+                            <option>13h00</option>
+                            <option>14h00</option>
+                            <option>15h00</option>
+                            <option>16h00</option>
+                            <option>17h00</option>
+                            <option>18h00</option>
+                            <option>19h00</option>
+                            <option>20h00</option>
+                            <option>21h00</option>
+                            <option>22h00</option>
+                            <option>23h00</option>
+                        </select>
+                    </div>
+
+                    <div class="field">
+                        <div class="label">J'indique l'heure de fin :</div>
+                        <select>
+                            <option></option>
+                            <option>00h00</option>
+                            <option>01h00</option>
+                            <option>02h00</option>
+                            <option>03h00</option>
+                            <option>04h00</option>
+                            <option>05h00</option>
+                            <option>06h00</option>
+                            <option>07h00</option>
+                            <option>08h00</option>
+                            <option>09h00</option>
+                            <option>10h00</option>
+                            <option>11h00</option>
+                            <option>12h00</option>
+                            <option>13h00</option>
+                            <option>14h00</option>
+                            <option>15h00</option>
+                            <option>16h00</option>
+                            <option>17h00</option>
+                            <option>18h00</option>
+                            <option>19h00</option>
+                            <option>20h00</option>
+                            <option>21h00</option>
+                            <option>22h00</option>
+                            <option>23h00</option>
+                        </select>
+                    </div>
+
+                    <div class="field">
+                        <button class="firstNext next">Suivant</button>
+                    </div>
+                </div>
+
+                <div class="page">
+                    <div class="title">Je suis volontaire pour un service :</div>
+                    <div class="field">
+                        <div class="label">Domestique :</div>
+                        <select>
+                            <option></option>
+
+                            <option>Faire le ménage</option>
+                            <option>Faire la cuisine</option>
+                            <option>Faire du bricolage</option>
+                            <option>Faire du jardinage</option>
+                            <option>Prendre soin d'une personne âgée</option>
+                            <option>Garder des enfants</option>
+                            <option>Garder des animaux</option>
+                            <option>Prêter ou donner un objet</option>
+                        </select>
+                    </div>
+
+                    <div class="field">
+                        <div class="label">En extérieur :</div>
+                        <select>
+                            <option></option>
+
+                            <option>Faire les courses</option>
+                            <option>Aider pour un déplacement</option>
+                            <option>Promener des animaux</option>
+
+                        </select>
+                    </div>
+
+
+                    <div class="field btns">
+                        <button class="prev-1 prev">Précédent</button>
+                        <button class="next-1 next">Suivant</button>
+                    </div>
+                </div>
+
+                <div class="page">
+                    <div class="title">Le lieu où je souhaite rendre service :</div>
+
+                    <div class="field">
+                        <div class="label">Région</div>
+                        <select>
+                            <option></option>
+                            <option value="a">Auvergne-Rhône-Alpes</option>
+                            <option value="b">Bourgogne-Franche-Comté</option>
+                            <option value="c">Bretagne</option>
+                            <option value="d">Centre-Val de Loire</option>
+                            <option value="e">Corse</option>
+                            <option value="f">Grand Est</option>
+                            <option value="g">Hauts-de-France</option>
+                            <option value="h">Île-de-France</option>
+                            <option value="i">Normandie</option>
+                            <option value="j">Nouvelle-Aquitaine</option>
+                            <option value="k">Occitanie</option>
+                            <option value="l">Pays de la Loire</option>
+                            <option value="m">Provence-Alpes-Côte d'Azur</option>
+                            <option value="n">Guadeloupe</option>
+                            <option value="o">Martinique</option>
+                            <option value="p">Guyane</option>
+                            <option value="q">La Réunion</option>
+                            <option value="r">Mayotte</option>
+                        </select>
+
+                    </div>
+
+
+                    <div class="field">
+                        <div class="label">Numéro de rue</div>
+                        <input type="Number">
+                    </div>
+
+                    <div class="field">
+                        <div class="label">Nom de la rue</div>
+                        <input type="text">
+                    </div>
+
+                    <div class="field">
+                        <div class="label">Code postal</div>
+                        <input type="text">
+                    </div>
+
+                    <div class="field">
+                        <div class="label">Ville</div>
+                        <input type="text">
+                    </div>
+
+                    <div class="field btns">
+                        <button class="prev-2 prev">Précédent</button>
+                        <button class="next-2 next">Suivant</button>
+                    </div>
+                </div>
+
+                <div class="page">
+                    <div class="title">Je déclare la période de disponibilité pour cette préférence :</div>
+
+                    <div class="field">
+                        <div class="label">Date de début</div>
+                        <input type="date">
+                    </div>
+
+                    <div class="field">
+                        <div class="label">Date de fin</div>
+                        <input type="date">
+                    </div>
+
+                    <div class="field btns">
+                        <button class="prev-3 prev">Précédent</button>
+                        <button class="submit">Je valide !</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="script.js"></script>
 
 </body>
-
 </html>
