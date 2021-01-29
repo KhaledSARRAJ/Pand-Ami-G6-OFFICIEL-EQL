@@ -16,21 +16,21 @@ namespace GestionProduits.Service
         [Key]
         public int UtilisateurID { get; set; }
         public string Nom { get; set; }
-       // [StringLength(40)]
+       // [Required StringLength(40)]
         public string Prenom { get; set; }
         //[StringLength(40)]
-        public string DateDeNaissance { get; set; }
-       // [Required(ErrorMessage ="Ce Champs est obligatoire !!")]
+        public DateTime DateDeNaissance { get; set; }
+       [Required(ErrorMessage ="Ce Champs est obligatoire !!")]
         public string NomUtilisateur { get; set; }
       //  [Required(ErrorMessage = "Ce Champs est obligatoire !!")]
       
         public string AdresseMail { get; set; }
         
-        public string DateInscription { get; set; }
+        public DateTime DateInscription { get; set; }
         public int NumTel { get; set; }
         
         public string NomDeRue { get; set; }
-        public string AutreTel { get; set; }
+        public int AutreTel { get; set; }
        
         public int NumeroRue { get; set; }
         public double CodePostal { get; set; }
@@ -43,7 +43,7 @@ namespace GestionProduits.Service
        // [Compare("Password")]
         public string ConfirmerMotDePasse { get; set; }
        
-        public string DateDeDesinscription { get; set; }
+        public DateTime DateDeDesinscription  { get; set; }
         public int identifiantSexeUser { get; set; }
         [ForeignKey("SexeID")]
         public ReferenctielSexe UtilisateurSexe { get; set; }
