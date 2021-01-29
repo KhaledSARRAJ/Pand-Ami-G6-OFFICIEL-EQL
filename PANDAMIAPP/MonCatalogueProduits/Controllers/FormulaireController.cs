@@ -3,30 +3,31 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using GestionProduits.Service;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MonCatalogueProduit.Service;
 
 namespace GestionProduits.Controllers
 {
-    public class InscriptionController : Controller
+    public class FormulaireController : Controller
     {
         public CatalogueDbContext dbContext { get; set; }
-        public InscriptionController(CatalogueDbContext db)
+        public FormulaireController(CatalogueDbContext db)
         {
             this.dbContext = db;
         }
-        public IActionResult Save()
+        public IActionResult SaveUtilisateur()
         {
             Utilisateur p = new Utilisateur();
             IEnumerable<Utilisateur> cats = dbContext.ListUtilisateurs;
             ViewBag.utilisateurs = cats;
-            return View("Save", p);
+            return View("SaveUtilisateur", p);
 
         }
         [HttpPost]
-        public IActionResult Save(Utilisateur p)
+        public IActionResult SaveUtilisateur(Utilisateur p)
         {
-            IEnumerable<Utilisateur> cats = dbContext.ListUtilisateurs; 
+            IEnumerable<Utilisateur> cats = dbContext.ListUtilisateurs;
             ViewBag.utilisateurs = cats;
 
             if (ModelState.IsValid)
@@ -39,6 +40,5 @@ namespace GestionProduits.Controllers
             return View("", p);
 
         }
-
     }
 }

@@ -33,13 +33,14 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                  
+
 
                     @await Component.InvokeAsync("CategoryMenu")
                     <li><a asp-area="" asp-controller="Home" asp-action="Volontaire">Preference</a></li>
                     <li><a asp-area="" asp-controller="Inscription" asp-action="SaveUtilisateur">Connexion</a></li>
 
                     @await Component.InvokeAsync("ShoppingCartSummary")
+                    <li><a asp-area="" asp-controller="Formulaire" asp-action="SaveUtilisateur">test</a></li>
 
                 </ul>
  
