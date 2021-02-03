@@ -1,8 +1,0 @@
-﻿@model DemandesListViewModel
-
-<div class="row marginTop">
-    @foreach (var demande in Model.Demandes)
-    {
-        @Html.Partial("DemandesSummary", demande)
-    }
-</div>
